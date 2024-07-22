@@ -1,0 +1,69 @@
+# ChainInsightPro.py
+
+import json
+import random
+
+class ChainInsightPro:
+    def __init__(self, platform_name, features):
+        self.platform_name = platform_name
+        self.features = features
+
+    def display_platform_info(self):
+        print(f"Platform Name: {self.platform_name}")
+        print("Features:")
+        for feature in self.features:
+            print(f"- {feature}")
+
+    def fetch_blockchain_data(self, blockchain_name):
+        # Simulate fetching blockchain data
+        print(f"Fetching data for blockchain: {blockchain_name}")
+        data = {
+            'blockchain': blockchain_name,
+            'latest_block': random.randint(100000, 999999),
+            'transactions_today': random.randint(1000, 5000),
+            'active_nodes': random.randint(50, 200),
+            'average_block_time': round(random.uniform(5, 15), 2)
+        }
+        return data
+
+    def analyze_data(self, data):
+        # Placeholder for data analysis logic
+        print("Analyzing blockchain data...")
+        # Example analysis
+        analysis_result = {
+            'blockchain': data['blockchain'],
+            'transaction_volume': data['transactions_today'] * 0.01,
+            'network_health': 'Good' if data['active_nodes'] > 100 else 'Fair'
+        }
+        return analysis_result
+
+    def display_analysis(self, analysis_result):
+        print("Analysis Results:")
+        print(json.dumps(analysis_result, indent=4))
+
+# Example usage
+if __name__ == "__main__":
+    platform_name = "ChainInsightPro"
+    features = [
+        "Blockchain data aggregation",
+        "Real-time analytics",
+        "Network performance metrics",
+        "Transaction volume analysis",
+        "Customizable reports"
+    ]
+
+    # Create an instance of ChainInsightPro
+    chain_insight_pro = ChainInsightPro(platform_name, features)
+
+    # Display platform info
+    chain_insight_pro.display_platform_info()
+
+    # Fetch blockchain data
+    blockchain_name = "Ethereum"
+    blockchain_data = chain_insight_pro.fetch_blockchain_data(blockchain_name)
+    
+    # Analyze the data
+    analysis_result = chain_insight_pro.analyze_data(blockchain_data)
+    
+    # Display analysis results
+    chain_insight_pro.display_analysis(analysis_result)
